@@ -1,6 +1,6 @@
-# Netflix Party Web (netflix-party-web)
+# Netflix Party Web
 
-A web interface for Netflix Party
+A web interface for the Netflix Party Chrome extension
 
 ## Install the dependencies
 ```bash
@@ -17,6 +17,3 @@ quasar dev
 ```bash
 quasar build
 ```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
