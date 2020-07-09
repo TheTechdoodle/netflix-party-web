@@ -16,6 +16,7 @@ jobs:
               with:
                   node-version: ${{ matrix.node-version }}
             - run: npm ci
+            - run: npm install -g @quasar/cli
             - run: quasar build
             - name: Deploy
               uses: peaceiris/actions-gh-pages@v3
