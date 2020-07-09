@@ -1,12 +1,13 @@
 <template>
     <q-page class="flex flex-center column">
-        <h2>Hello</h2>
-        <h2>World</h2>
+        <socket-connection/>
     </q-page>
 </template>
 
 <script>
+    import SocketConnection from 'components/SocketConnection';
     export default {
-        name: 'PageIndex'
+        name: 'PageIndex',
+        components: {SocketConnection}
     };
 </script>

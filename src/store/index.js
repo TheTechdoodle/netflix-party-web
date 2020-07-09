@@ -17,8 +17,14 @@ Vue.use(Vuex);
 export default function(/* { ssrContext } */)
 {
     const Store = new Vuex.Store({
-        modules: {
-            // example
+        state: {
+            messages: []
+        },
+        mutations: {
+            addMessage(state, message)
+            {
+                state.messages.push(message);
+            }
         },
 
         // enable strict mode (adds overhead!)
