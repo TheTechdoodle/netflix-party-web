@@ -1,11 +1,13 @@
 <template>
     <div id="q-app">
-        <router-view/>
+        <main-layout/>
     </div>
 </template>
 
 <script>
+    import MainLayout from 'layouts/MainLayout';
     export default {
-        name: 'App'
+        name: 'App',
+        components: {MainLayout}
     };
 </script>

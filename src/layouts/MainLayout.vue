@@ -9,14 +9,15 @@
         </q-header>
 
         <q-page-container>
-            <router-view/>
+            <page-index/>
         </q-page-container>
     </q-layout>
 </template>
 
 <script>
+    import PageIndex from 'pages/Index';
     export default {
         name: 'MainLayout',
-        components: {}
+        components: {PageIndex}
     };
 </script>
