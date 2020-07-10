@@ -19,7 +19,14 @@ export default function(/* { ssrContext } */)
     const Store = new Vuex.Store({
         state: {
             messages: [],
-            connected: false
+            connected: false,
+            connectionSettings: {
+                icon: '',
+                name: '',
+                npSessionId: '',
+                npServerId: ''
+            },
+            permId: ''
         },
         mutations: {
             addMessage(state, message)
@@ -40,6 +47,17 @@ export default function(/* { ssrContext } */)
             setConnected(state, connected)
             {
                 state.connected = connected;
+            },
+            setConnectionSettings(state, {icon, name, npSessionId, npServerId})
+            {
+                state.connectionSettings.icon = icon;
+                state.connectionSettings.name = name;
+                state.connectionSettings.npSessionId = npSessionId;
+                state.connectionSettings.npServerId = npServerId;
+            },
+            setPermId(state, id)
+            {
+                state.permId = id;
             }
         },
 

@@ -7,12 +7,14 @@ export default ({store, Vue}) =>
     {
         return new Promise(resolve =>
         {
+            store.commit('setConnectionSettings', {icon, name, npSessionId, npServerId});
             const socket = io(`https://${npServerId}.netflixparty.com/`);
             Vue.prototype.$socket = socket;
 
             socket.on('connect', () =>
             {
                 const id = nanoid(16);
+                store.commit('setPermId', id);
                 socket.emit('joinSession', {
                     sessionId: npSessionId,
                     permId: id,
