@@ -1,6 +1,9 @@
 <template>
     <q-page class="flex flex-center column">
-        <socket-connection/>
+        <template v-if="showSocketConnection">
+            <socket-connection/>
+        </template>
+
     </q-page>
 </template>
 
@@ -8,6 +11,12 @@
     import SocketConnection from 'components/SocketConnection';
     export default {
         name: 'PageIndex',
-        components: {SocketConnection}
+        components: {SocketConnection},
+        computed: {
+            showSocketConnection()
+            {
+                return !this.$store.state.connected;
+            }
+        }
     };
 </script>

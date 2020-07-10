@@ -24,10 +24,15 @@ export default ({store, Vue}) =>
                     }
                 }, data =>
                 {
+                    store.commit('setConnected', true);
+
+                    // Add previous loaded messages
                     for(let message of data.messages)
                     {
                         store.commit('addMessage', message);
                     }
+
+                    // Listen for socket events
                     socket.on('sendMessage', message =>
                     {
                         store.commit('addMessage', message);
@@ -36,7 +41,12 @@ export default ({store, Vue}) =>
                     {
                         store.commit('updateUserSettings', updateSettings);
                     });
+                    socket.on('disconnect', () =>
+                    {
+                        store.commit('setConnected', false);
+                    });
 
+                    // Set up functions
                     Vue.prototype.$sendChat = message =>
                     {
                         socket.emit('sendMessage', {

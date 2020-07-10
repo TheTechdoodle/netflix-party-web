@@ -18,7 +18,8 @@ export default function(/* { ssrContext } */)
 {
     const Store = new Vuex.Store({
         state: {
-            messages: []
+            messages: [],
+            connected: false
         },
         mutations: {
             addMessage(state, message)
@@ -35,6 +36,10 @@ export default function(/* { ssrContext } */)
                         message.userIcon = update.userSettings.userIcon;
                     }
                 }
+            },
+            setConnected(state, connected)
+            {
+                state.connected = connected;
             }
         },
 

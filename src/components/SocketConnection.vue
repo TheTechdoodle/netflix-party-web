@@ -1,7 +1,18 @@
 <template>
-    <q-form @submit="onSubmit" style="min-width: 400px" class="q-gutter-md">
-        <q-input type="text" v-model="url" label="URL"/>
-        <q-btn label="Submit" type="submit" color="primary"/>
+    <q-form @submit="onSubmit"
+            autofocus
+            style="min-width: 400px"
+            class="q-gutter-md">
+        <q-input type="url"
+                 v-model="url"
+                 label="Party URL"
+                 outlined
+        />
+        <q-btn label="Submit"
+               type="submit"
+               color="primary"
+               :loading="loading"
+        />
     </q-form>
 </template>
 
@@ -9,12 +20,13 @@
     export default {
         name: 'SocketConnection',
         data: () => ({
-            url: ''
+            url: '',
+            loading: false
         }),
         methods: {
             onSubmit()
             {
-                console.log(`Connecting to ${this.url}`);
+                this.loading = true;
                 let connectionData = {
                     name: 'testing',
                     icon: 'Poohbear.svg'
