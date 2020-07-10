@@ -1,5 +1,5 @@
 <template>
-    <q-form @submit="onSubmit" style="min-width: 400px">
+    <q-form @submit="onSubmit" style="min-width: 400px" class="q-gutter-md">
         <q-input type="text" v-model="url" label="URL"/>
         <q-btn label="Submit" type="submit" color="primary"/>
     </q-form>

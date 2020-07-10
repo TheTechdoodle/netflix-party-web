@@ -32,6 +32,10 @@ export default ({store, Vue}) =>
                     {
                         store.commit('addMessage', message);
                     });
+                    socket.on('updateSettings', updateSettings =>
+                    {
+                        store.commit('updateUserSettings', updateSettings);
+                    });
 
                     Vue.prototype.$sendChat = message =>
                     {

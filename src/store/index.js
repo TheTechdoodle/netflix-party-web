@@ -24,6 +24,17 @@ export default function(/* { ssrContext } */)
             addMessage(state, message)
             {
                 state.messages.push(message);
+            },
+            updateUserSettings(state, update)
+            {
+                for(let message of state.messages)
+                {
+                    if(message.userId === update.userId)
+                    {
+                        message.userNickname = update.userSettings.userNickname;
+                        message.userIcon = update.userSettings.userIcon;
+                    }
+                }
             }
         },
 
